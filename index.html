@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Lexi's Birthday Site</title>
+</head>
+
+<body>
+    <div class="overlay" onclick="toggleMenu()"></div>
+    <div class ="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+    </div>
+    <header>
+        <h1>To the love of my live ❤️</h1>
+        <nav id="menu">
+            <div class="menu-content">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="things/smell.html">1. Smell</a></li>
+                    <li><a href="things/body.html">2. Body</a></li>
+                    <li><a href="things/lips.html">3. Lips</a></li>
+                    <li><a href="things/eyes.html">4. Eyes</a></li>
+                    <li><a href="things/smile.html">5. Smile</a></li>
+                    <li><a href="things/humor.html">6. Humor</a></li>
+                    <li><a href="things/beauty.html">7. Beauty</a></li>
+                    <li><a href="things/smart.html">8. Smart</a></li>
+                    <li><a href="things/interests.html">9. Interests</a></li>
+                    <li><a href="things/nerdy.html">10. Nerdy</a></li>
+                    <li><a href="things/fun.html">11. Fun</a></li>
+                    <li><a href="things/hardworking.html">12. Hardworking</a></li>
+                    <li><a href="things/kindness.html">13. Kindness</a></li>
+                    <li><a href="things/possessiveness.html">14. Possessiveness</a></li>
+                    <li><a href="things/sameDream.html">15. Same Dream</a></li>
+                    <li><a href="things/aloneTogether.html">16. Alone Together</a></li>
+                    <li><a href="things/support.html">17. Support</a></li>
+                    <li><a href="things/passion.html">18. Passion</a></li>
+                    <li><a href="things/empathy.html">19. Empathy</a></li>
+                    <li><a href="things/comfortable.html">20. Comfortable</a></li>
+                    <li><a href="things/calmness.html">21. Calmness</a></li>
+                    <li><a href="things/makeMeFeelLoved.html">22. Makes Me Feel Loved</a></li>
+                    <li><a href="things/makeMeFeelPerfect.html">23. Makes Me Feel Perfect</a></li>
+                    <li><a href="things/peaceful.html">24. Peaceful</a></li>
+                    <li><a href="things/soulmate.html">25. Soulmate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="gallery">
+            <!-- <img src="images/1.jpg" alt="Pic 1"> -->
+        </div>
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById("menu");
+                menu.classList.toggle("active");
+                document.body.classList.toggle("menu-open");
+            }
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (!link.getAttribute('href').startsWith('#')) {
+                        document.getElementById("menu").classList.remove("active");
+                        document.body.classList.remove("menu-open");
+                    }
+                })
+            })
+
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    </main>
+</body>
+</html>

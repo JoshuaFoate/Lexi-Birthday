@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Lexi's Humor</title>
+</head>
+
+<body>
+    <div class ="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times" onclick="closeMenu()"></i>
+    </div>
+    <header>
+        <div class="header-container">
+            <h1>Your Humor </h1>
+            <img src="../images/humor-pic.png" alt="Header right image" class="header-image right">
+        </div>
+        <nav id="menu">
+            <div class="menu-content">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="smell.html">1. Smell</a></li>
+                    <li><a href="body.html">2. Body</a></li>
+                    <li><a href="lips.html">3. Lips</a></li>
+                    <li><a href="eyes.html">4. Eyes</a></li>
+                    <li><a href="smile.html">5. Smile</a></li>
+                    <li><a href="humor.html">6. Humor</a></li>
+                    <li><a href="beauty.html">7. Beauty</a></li>
+                    <li><a href="smart.html">8. Smart</a></li>
+                    <li><a href="interests.html">9. Interests</a></li>
+                    <li><a href="nerdy.html">10. Nerdy</a></li>
+                    <li><a href="fun.html">11. Fun</a></li>
+                    <li><a href="hardworking.html">12. Hardworking</a></li>
+                    <li><a href="kindness.html">13. Kindness</a></li>
+                    <li><a href="possessiveness.html">14. Possessiveness</a></li>
+                    <li><a href="sameDream.html">15. Same Dream</a></li>
+                    <li><a href="aloneTogether.html">16. Alone Together</a></li>
+                    <li><a href="support.html">17. Support</a></li>
+                    <li><a href="passion.html">18. Passion</a></li>
+                    <li><a href="empathy.html">19. Empathy</a></li>
+                    <li><a href="comfortable.html">20. Comfortable</a></li>
+                    <li><a href="calmness.html">21. Calmness</a></li>
+                    <li><a href="makeMeFeelLoved.html">22. Makes Me Feel Loved</a></li>
+                    <li><a href="peaceful.html">23. Peaceful</a></li>
+                    <li><a href="makeMeFeelPerfect.html">24. Makes Me Feel Perfect</a></li>
+                    <li><a href="soulmate.html">25. Soulmate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container-thing">
+            <div class="video-container">
+                <video controls>
+                    <source src="../videos/humor-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="text-section">
+                <p>
+                    Video Transcript: I love laughing with you baby. Oh my god you crack me up so much.
+                    We joke and lauch with each other so much, it makes me so happy. You have made me die
+                    laughing when you were doing the "Yeah, yeah, yeah" thing and oh my god I can't name
+                    that many times I've laughed that hard baby. You are just so funny and I'm so happy that
+                    we share a good amount of our humor together. So good baby, I love it.
+                </p>
+            </div>
+        </div>
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById("menu");
+                menu.classList.toggle("active");
+                document.body.classList.toggle("menu-open");
+            }
+
+            function closeMenu() {
+                const menu = document.getElementById("menu");
+                menu.classList.remove("active");
+                document.body.classList.remove("menu-open");
+            }
+
+            document.querySelector('.hamburger').onclick = toggleMenu;
+
+            document.querySelector('.hamburger .fa-times').onclick = function(e) {
+                e.stopPropagation();
+                closeMenu();
+            }
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (!link.getAttribute('href').startsWith('#')) {
+                        closeMenu();
+                    }
+                })
+            })
+
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    </main>
+</body>
+</html>

@@ -9,13 +9,16 @@
 </head>
 
 <body>
-    <div class="overlay" onclick="toggleMenu()"></div>
     <div class ="hamburger" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times" onclick="closeMenu()"></i>
     </div>
     <header>
-        <h1>To the love of my live ❤️</h1>
+        <div class="header-container">
+            <img src="images/kuromi.jpg" alt="Header left image" class="header-image left">
+            <h1>To the love of my live ❤️</h1>
+            <img src="images/spiderman.jpg" alt="Header right image" class="header-image right">
+        </div>
         <nav id="menu">
             <div class="menu-content">
                 <ul>
@@ -42,8 +45,8 @@
                     <li><a href="things/comfortable.html">20. Comfortable</a></li>
                     <li><a href="things/calmness.html">21. Calmness</a></li>
                     <li><a href="things/makeMeFeelLoved.html">22. Makes Me Feel Loved</a></li>
-                    <li><a href="things/makeMeFeelPerfect.html">23. Makes Me Feel Perfect</a></li>
-                    <li><a href="things/peaceful.html">24. Peaceful</a></li>
+                    <li><a href="things/peaceful.html">23. Peaceful</a></li>
+                    <li><a href="things/makeMeFeelPerfect.html">24. Makes Me Feel Perfect</a></li>
                     <li><a href="things/soulmate.html">25. Soulmate</a></li>
                 </ul>
             </div>
@@ -51,8 +54,28 @@
     </header>
 
     <main>
-        <div class="gallery">
-            <!-- <img src="images/1.jpg" alt="Pic 1"> -->
+        <div class="content-container">
+            <div class="gallery">
+                <img src="images/LexiSushi.jpeg" alt="Pic 1">
+            </div>
+            <div class="text-section">
+                <h2>Happy Birthday Lexi!</h2>
+                <p>Everyday with you has felt like a gift to me. But it's your birthday so let's talk about 
+                    what gifts you deserve. Well you deserve everything but that was sold out on Amazon,
+                    So I just made you this site instead. I hope you like it and I hope you have the best
+                    birthday (weekend) ever!
+                </p>
+                <p>
+                    You really deserve the world baby, and I am so grateful to be the person that gets to
+                    do life with you. You are the most amazing person ever, and I promise to never let you
+                    forget that.
+                </p>
+                <p>
+                    You can click the menu there that has a links to 25 things that I love about you. 
+                    Obviously there are more but I thought it would make sense since it is your 25th
+                    birthday. I love you baby!
+                </p>
+            </div>
         </div>
         <script>
             function toggleMenu() {
@@ -61,11 +84,23 @@
                 document.body.classList.toggle("menu-open");
             }
 
+            function closeMenu() {
+                const menu = document.getElementById("menu");
+                menu.classList.remove("active");
+                document.body.classList.remove("menu-open");
+            }
+
+            document.querySelector('.hamburger').onclick = toggleMenu;
+
+            document.querySelector('.hamburger .fa-times').onclick = function(e) {
+                e.stopPropagation();
+                closeMenu();
+            }
+
             document.querySelectorAll('nav a').forEach(link => {
                 link.addEventListener('click', (e) => {
                     if (!link.getAttribute('href').startsWith('#')) {
-                        document.getElementById("menu").classList.remove("active");
-                        document.body.classList.remove("menu-open");
+                        closeMenu();
                     }
                 })
             })
